@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Figma Land</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+    }
+    body {
+      line-height: 1.6;
+      color: #333;
+      overflow-x: hidden;
+    }
+    header {
+      background: url('./assets/80b7ece24a3d47292461f8e199ffdd36.jpeg') no-repeat center/cover;
+      height: 600px;
+      position: relative;
+      text-align: center;
+      color: #fff;
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+    }
+    .nav-links a:hover {
+      color: #007bff;
+    }
+    .logo img {
+      height: 40px; /* Adjust size as needed */
+      width: auto;
+    }
+    .social-icons a {
+      color: #fff;
+      margin-left: 15px;
+      font-size: 20px;
+    }
+    .social-icons a:hover {
+      color: #007bff;
+    }
+    .header-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .header-content h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .header-content p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #fff;
+    }
+    .header-content button {
+      padding: 10px 30px;
+      font-size: 16px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .header-content button:hover {
+      background: #0056b3;
+    }
+    .features {
+      padding: 80px 20px;
+      text-align: center;
+      background: #fff;
+    }
+    .features h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .features p {
+      font-size: 18px;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .feature-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .feature-item {
+      width: 25%;
+      text-align: left;
+    }
+    .feature-item h3 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    .feature-item p {
+      font-size: 14px;
+      color: #777;
+    }
+    .video-container {
+      position: relative;
+      width: 600px;
+      height: 400px;
+      margin: 40px auto;
+      background: #000;
+    }
+    .video-container video {
+      width: 100%;
+      height: 100%;
+    }
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 60px;
+      color: #fff;
+      cursor: pointer;
+      display: none;
+    }
+    .video-container.paused .play-icon {
+      display: block;
+    }
+    .organization {
+      padding: 80px 20px;
+      text-align: left;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .organization-text {
+      max-width: 400px;
+    }
+    .organization-text h2 {
+      font-size: 36px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    .organization-text p {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    .organization-text button {
+      padding: 10px 30px;
+      font-size: 16px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .organization-text button:hover {
+      background: #0056b3;
+    }
+    .organization-img {
+      max-width: 50%;
+    }
+    .organization-img img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .newsletter {
+      padding: 80px 20px;
+      text-align: left;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .newsletter-text {
+      max-width: 400px;
+    }
+    .newsletter-text p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .newsletter-text h2 {
+      font-size: 36px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    .newsletter-form {
+      display: flex;
+      align-items: center;
+    }
+    .newsletter-form input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+    }
+    .newsletter-form button {
+      padding: 10px 30px;
+      font-size: 16px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+    }
+    .newsletter-form button:hover {
+      background: #0056b3;
+    }
+    .newsletter-img {
+      max-width: 50%;
+    }
+    .newsletter-img img {
+      width: 100%;
+    }
+    .partners {
+      padding: 80px 20px;
+      text-align: center;
+      background: #fff;
+    }
+    .partners h2 {
+      font-size: 36px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    .partners p {
+      font-size: 16px;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .partner-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .partner-item {
+      width: 200px;
+      height: 120px;
+      border: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 5px;
+    }
+    .partner-item img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+    .partners button {
+      padding: 10px 30px;
+      font-size: 16px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 40px;
+    }
+    .partners button:hover {
+      background: #0056b3;
+    }
+    .testimonials {
+      padding: 80px 20px;
+      text-align: center;
+      background: #fff;
+    }
+    .testimonials h2 {
+      font-size: 36px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    .testimonials p {
+      font-size: 16px;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .slider {
+      position: relative;
+      width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+      display: none;
+    }
+    .slide.active {
+      display: block;
+    }
+    .slide img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .slide cite {
+      font-size: 16px;
+      color: #666;
+      vertical-align: middle;
+    }
+    .dots {
+      margin-top: 20px;
+    }
+    .dot {
+      height: 10px;
+      width: 10px;
+      background: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    .dot.active {
+      background: #007bff;
+    }
+    .pricing {
+      padding: 80px 20px;
+      text-align: center;
+      background: #1a2a44;
+      color: #fff;
+    }
+    .pricing h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .pricing p {
+      font-size: 16px;
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .pricing-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .pricing-card {
+      width: 250px;
+      padding: 20px;
+      background: #fff;
+      color: #2c3e50;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .pricing-card.free {
+      border: 2px solid #007bff;
+    }
+    .pricing-card.standard {
+      background: #007bff;
+      color: #fff;
+    }
+    .pricing-card.business {
+      border: 2px solid #007bff;
+    }
+    .pricing-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .pricing-card .price {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .pricing-card ul {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .pricing-card ul li {
+      padding: 5px 0;
+      font-size: 14px;
+    }
+    .pricing-card button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .pricing-card.standard button {
+      background: #fff;
+      color: #007bff;
+    }
+    .pricing-card button:hover {
+      background: #0056b3;
+    }
+    .pricing-card.standard button:hover {
+      background: #e6e6e6;
+      color: #0056b3;
+    }
+    .contact {
+      padding: 80px 20px;
+      text-align: center;
+      background: #fff;
+    }
+    .contact h2 {
+      font-size: 36px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    .contact p {
+      font-size: 16px;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .contact-content {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .contact-form {
+      width: 300px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+    }
+    .contact-form h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+    .contact-form textarea {
+      height: 100px;
+      resize: vertical;
+    }
+    .contact-form button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .contact-form button:hover {
+      background: #0056b3;
+    }
+    .contact-info {
+      text-align: left;
+    }
+    .contact-info div {
+      margin-bottom: 20px;
+    }
+    .contact-info a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    .contact-map {
+      width: 500px;
+      height: 300px;
+      background: url('https://via.placeholder.com/500x300') no-repeat center/cover;
+      border-radius: 10px;
+    }
+    .contact-social {
+      margin-top: 20px;
+    }
+    .contact-social a {
+      margin: 0 10px;
+      font-size: 24px;
+    }
+    footer {
+      padding: 40px 20px;
+      background: #1a2a44;
+      color: #fff;
+      text-align: center;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-section {
+      text-align: left;
+    }
+    .footer-section h4 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .footer-section ul {
+      list-style: none;
+    }
+    .footer-section ul li {
+      margin-bottom: 5px;
+    }
+    .footer-section ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .footer-section ul li a:hover {
+      color: #007bff;
+    }
+    .footer-contact {
+      text-align: left;
+    }
+    .footer-contact div {
+      margin-bottom: 10px;
+    }
+    .footer-contact a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .footer-contact a:hover {
+      color: #007bff;
+    }
+    .footer-social a {
+      margin: 0 10px;
+      font-size: 20px;
+      color: #fff;
+    }
+    .footer-social a:hover {
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <header id="home">
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#features">Product</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="logo">
+        <img src="./assets/figmaLand.png" alt="Figma Land Logo">
+      </div>
+      <div class="social-icons">
+        <a href="#">🐦</a>
+        <a href="#"></a>
+      </div>
+    </div>
+    <div class="header-content">
+      <h1>The best products start with Figma</h1>
+      <p>Most calendars are designed for teams. Slate is designed for freelancers</p>
+      <button>Try For Free</button>
+    </div>
+  </header>
+  <section id="features" class="features">
+    <h2>Features</h2>
+    <p>Most calendars are designed for teams. Slate is designed for freelancers</p>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <span>📏</span>
+        <h3>OpenType features</h3>
+        <p>Slate helps you see how many more days you need to work to reach your financial goal.</p>
+      </div>
+      <div class="feature-item">
+        <span>📊</span>
+        <h3>Design with real data</h3>
+        <p>Slate helps you see how many more days you need to work to reach your financial goal.</p>
+      </div>
+      <div class="feature-item">
+        <span>⏩</span>
+        <h3>Fastest way to take action</h3>
+        <p>Slate helps you see how many more days you need to work to reach your financial goal.</p>
+      </div>
+    </div>
+    <div class="video-container" id="videoContainer">
+      <video id="myVideo">
+        <source src="./assets/videoplayback.mp4" type="video/mp4">
+      </video>
+      <span class="play-icon" onclick="toggleVideo()">▶</span>
+    </div>
+  </section>
+  <section id="organization" class="organization">
+    <div class="organization-text">
+      <h2>Fastest way to organize</h2>
+      <p>Most calendars are designed for teams. Slate is designed for freelancers</p>
+      <button>Try For Free</button>
+    </div>
+    <div class="organization-img">
+      <img src="./assets/laptop.png" alt="Laptop">
+    </div>
+  </section>
+  <section id="newsletter" class="newsletter">
+    <div class="newsletter-img">
+      <img src="./assets/office.png" alt="Newsletter Illustration">
+    </div>
+    <div class="newsletter-text">
+      <p>At your fingertips</p>
+      <h2>Lightning fast prototyping</h2>
+      <p>Subscribe to our Newsletter. Available exclusively on FigmaLand</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Your Email" required>
+        <button type="button">Subscribe</button>
+      </div>
+    </div>
+  </section>
+  <section id="partners" class="partners">
+    <h2>Partners</h2>
+    <p>Most calendars are designed for teams. Slate is designed for freelancers</p>
+    <div class="partner-grid">
+      <div class="partner-item"><img src="./assets/google.png" alt="Google"></div>
+      <div class="partner-item"><img src="./assets/amazon.png" alt="Amazon"></div>
+      <div class="partner-item"><img src="./assets/microsoft.png" alt="Microsoft"></div>
+      <div class="partner-item"><img src="./assets/uber.png" alt="Uber"></div>
+      <div class="partner-item"><img src="./assets/dropbox.png" alt="Dropbox"></div>
+      <div class="partner-item"><img src="./assets/google.png" alt="Google"></div>
+      <div class="partner-item"><img src="./assets/uber.png" alt="Uber"></div>
+      <div class="partner-item"><img src="./assets/amazon.png" alt="Amazon"></div>
+    </div>
+    <button>Try For Free</button>
+  </section>
+  <section id="testimonials" class="testimonials">
+    <h2>Testimonials</h2>
+    <p>Most calendars are designed for teams. Slate is designed for freelancers who want a simple way to plan their schedule.</p>
+    <div class="slider">
+      <div class="slides" id="slides">
+        <div class="slide active">
+          <img src="./assets/john.png" alt="John Doe">
+          <cite>John Doe <span>UI Designer</span></cite>
+          <p>Most calendars are designed for teams. Slate is designed for freelancers who want a simple way to plan their schedule.</p>
+        </div>
+      </div>
+      <div class="dots" id="dots"></div>
+    </div>
+  </section>
+  <section id="pricing" class="pricing">
+    <h2>Pricing</h2>
+    <p>Most calendars are designed for teams. Slate is designed for freelancers</p>
+    <div class="pricing-grid">
+      <div class="pricing-card free">
+        <h3>FREE</h3>
+        <div class="price">$0 <span>Per Month</span></div>
+        <ul>
+          <li>Organize across all apps by hand</li>
+          <li>Pricing Feature</li>
+          <li>Pricing Feature</li>
+          <li>Pricing Feature</li>
+          <li>Pricing Feature</li>
+        </ul>
+        <button>Order Now</button>
+      </div>
+      <div class="pricing-card standard">
+        <h3>STANDARD</h3>
+        <div class="price">$10 <span>Per Month</span></div>
+        <ul>
+          <li>Organize across all apps by hand</li>
+          <li>Pricing Feature</li>
+          <li>Pricing Feature</li>
+          <li>Pricing Feature</li>
+          <li>Pricing Feature</li>
+        </ul>
+        <button>Order Now</button>
+      </div>
+      <div class="pricing-card business">
+        <h3>BUSINESS</h3>
+        <div class="price">$99 <span>Per Month</span></div>
+        <ul>
+          <li>Organize across all apps by hand</li>
+          <li>Pricing Feature</li>
+          <li>Pricing Feature</li>
+          <li>Pricing Feature</li>
+          <li>Pricing Feature</li>
+        </ul>
+        <button>Order Now</button>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Most calendars are designed for teams. Slate is designed for freelancers</p>
+    <div class="contact-content">
+      <div class="contact-form">
+        <h3>Contact Us</h3>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="button">Send</button>
+      </div>
+      <div class="contact-info">
+        <div><span>📍</span> 6336 Spring St #1273, Georgia, United States</div>
+        <div><span>📞</span> <a href="tel:+14355550130">(434) 555-0130</a></div>
+        <div><span>📧</span> <a href="mailto:willie.jennings@example.com">willie.jennings@example.com</a></div>
+      </div>
+      <div class="contact-map">
+        <!-- Placeholder for map image -->
+      </div>
+    </div>
+    <div class="contact-social">
+      <a href="#">🐦</a>
+      <a href="#"></a>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#partners">Partners</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Tomothy</h4>
+        <ul>
+          <li>Eleanor Edwards</li>
+          <li>Ted Robertson</li>
+          <li>Annette Russell</li>
+          <li>Jennie McKinney</li>
+          <li>Gloria Richards</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Jane Black</h4>
+        <ul>
+          <li>Philip Jones</li>
+          <li>Colleen Russell</li>
+          <li>Marvin Hawkins</li>
+          <li>Bruce Simmons</li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>© 2022 undefined</h4>
+        <div><span>📍</span> 7480 Mastwood Hollo</div>
+        <div><span>📞</span> <a href="tel:+12995550108">(299) 555-0108</a></div>
+        <div class="footer-social">
+          <a href="#">🐦</a>
+          <a href="#"></a>
+          <a href="#"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Video Functionality
+    let video = document.getElementById('myVideo');
+    let videoContainer = document.getElementById('videoContainer');
+    video.addEventListener('click', toggleVideo);
+    function toggleVideo() {
+      if (video.paused) {
+        video.play();
+        videoContainer.classList.remove('paused');
+      } else {
+        video.pause();
+        videoContainer.classList.add('paused');
+      }
+    }
+
+    // Testimonial Slider Functionality
+    let slideIndex = 0;
+    const slides = document.getElementById('slides').children;
+    const dotsContainer = document.getElementById('dots');
+
+    // Initialize dots
+    for (let i = 0; i < slides.length; i++) {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      dot.onclick = () => moveSlide(i);
+      if (i === 0) dot.classList.add('active');
+      dotsContainer.appendChild(dot);
+    }
+
+    function moveSlide(index) {
+      slides[slideIndex].classList.remove('active');
+      slideIndex = index;
+      slides[slideIndex].classList.add('active');
+      updateDots();
+    }
+
+    function updateDots() {
+      const dots = document.getElementsByClassName('dot');
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove('active');
+      }
+      dots[slideIndex].classList.add('active');
+    }
+
+    // Auto-slide every 5 seconds
+    setInterval(() => {
+      slides[slideIndex].classList.remove('active');
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add('active');
+      updateDots();
+    }, 5000);
+  </script>
+</body>
+</html>
