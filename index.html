@@ -19,7 +19,7 @@
     }
     header {
       background: url('./assets/80b7ece24a3d47292461f8e199ffdd36.jpeg') no-repeat center/cover;
-      height: 600px;
+      height: 730px;
       position: relative;
       text-align: center;
       color: #fff;
@@ -31,7 +31,6 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 50px;
-      background: rgba(0, 0, 0, 0.5);
     }
     .nav-links a {
       color: #fff;
@@ -43,7 +42,7 @@
       color: #007bff;
     }
     .logo img {
-      height: 40px; /* Adjust size as needed */
+      height: 80px;
       width: auto;
     }
     .social-icons a {
@@ -51,8 +50,12 @@
       margin-left: 15px;
       font-size: 20px;
     }
-    .social-icons a:hover {
-      color: #007bff;
+    .social-icons a img {
+      width: 20px;
+      height: 20px;
+    }
+    .social-icons a:hover img {
+      filter: brightness(1.2);
     }
     .header-content {
       position: absolute;
@@ -109,7 +112,17 @@
     }
     .feature-item {
       width: 25%;
-      text-align: left;
+      text-align: center;
+    }
+    .feature-item img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 20px;
+    }
+    .feature-item img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
     }
     .feature-item h3 {
       font-size: 20px;
@@ -125,23 +138,44 @@
       height: 400px;
       margin: 40px auto;
       background: #000;
+      border-radius: 10px;
+      overflow: hidden;
     }
     .video-container video {
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
-    .play-icon {
+    .play-pause-btn {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 60px;
-      color: #fff;
+      width: 100px;
+      height: 100px;
+      background-color: #007bff;
+      border-radius: 50%;
+      border: none;
       cursor: pointer;
-      display: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 30px;
+      padding-left: 4px;
+      z-index: 10;
     }
-    .video-container.paused .play-icon {
-      display: block;
+    .play-pause-btn::before {
+      content: "▶";
+    }
+    .video-container.playing .play-pause-btn::before {
+      content: "❚❚";
+    }
+    .video-container.paused .play-pause-btn {
+      display: flex;
+    }
+    .video-container.playing .play-pause-btn {
+      display: flex;
     }
     .organization {
       padding: 80px 20px;
@@ -259,8 +293,7 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 20px;
-      max-width: 1200px;
+      max-width: 980px;
       margin: 0 auto;
     }
     .partner-item {
@@ -437,23 +470,41 @@
       background: #fff;
     }
     .contact h2 {
-      font-size: 36px;
+      font-size: 27px;
       color: #2c3e50;
       margin-bottom: 20px;
     }
     .contact p {
-      font-size: 16px;
+      font-size: 12px;
       color: #666;
       max-width: 600px;
       margin: 0 auto 40px;
     }
     .contact-content {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: flex-start;
-      gap: 50px;
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 0 auto;
+      flex-direction: row;
+    }
+    .contact-info {
+      text-align: left;
+      font-size: 10px;
+      margin-bottom: 20px;
+    }
+    .contact-info div {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .contact-info a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
     }
     .contact-form {
       width: 300px;
@@ -485,37 +536,32 @@
       background: #007bff;
       color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 25px;
       cursor: pointer;
+      width: 100%;
     }
     .contact-form button:hover {
       background: #0056b3;
     }
-    .contact-info {
-      text-align: left;
-    }
-    .contact-info div {
-      margin-bottom: 20px;
-    }
-    .contact-info a {
-      color: #007bff;
-      text-decoration: none;
-    }
-    .contact-info a:hover {
-      text-decoration: underline;
-    }
     .contact-map {
       width: 500px;
       height: 300px;
-      background: url('https://via.placeholder.com/500x300') no-repeat center/cover;
       border-radius: 10px;
+    }
+    .contact-social a img {
+      width: 24px;
+      height: 24px;
     }
     .contact-social {
       margin-top: 20px;
+      text-align: center;
     }
     .contact-social a {
       margin: 0 10px;
-      font-size: 24px;
+      color: #007bff;
+    }
+    .contact-social a:hover img {
+      filter: brightness(1.2);
     }
     footer {
       padding: 40px 20px;
@@ -564,13 +610,20 @@
     .footer-contact a:hover {
       color: #007bff;
     }
+    .footer-social a img {
+      width: 20px;
+      height: 20px;
+    }
+    .footer-social {
+      margin-top: 20px;
+      text-align: center;
+    }
     .footer-social a {
       margin: 0 10px;
-      font-size: 20px;
       color: #fff;
     }
-    .footer-social a:hover {
-      color: #007bff;
+    .footer-social a:hover img {
+      filter: brightness(1.2);
     }
   </style>
 </head>
@@ -588,8 +641,9 @@
         <img src="./assets/figmaLand.png" alt="Figma Land Logo">
       </div>
       <div class="social-icons">
-        <a href="#">🐦</a>
-        <a href="#"></a>
+        <a href="#"><img src="./assets/twitter-white.png" alt="Twitter"></a>
+        <a href="#"><img src="./assets/facebook-white.png" alt="Facebook"></a>
+        <a href="#"><img src="./assets/linkedin-white.png" alt="LinkedIn"></a>
       </div>
     </div>
     <div class="header-content">
@@ -603,17 +657,17 @@
     <p>Most calendars are designed for teams. Slate is designed for freelancers</p>
     <div class="feature-grid">
       <div class="feature-item">
-        <span>📏</span>
+        <img src="./assets/openType.png" alt="OpenType Icon">
         <h3>OpenType features</h3>
         <p>Slate helps you see how many more days you need to work to reach your financial goal.</p>
       </div>
       <div class="feature-item">
-        <span>📊</span>
+        <img src="./assets/designWith.png" alt="Design With Icon">
         <h3>Design with real data</h3>
         <p>Slate helps you see how many more days you need to work to reach your financial goal.</p>
       </div>
       <div class="feature-item">
-        <span>⏩</span>
+        <img src="./assets/fastest.png" alt="Fastest Icon">
         <h3>Fastest way to take action</h3>
         <p>Slate helps you see how many more days you need to work to reach your financial goal.</p>
       </div>
@@ -622,7 +676,7 @@
       <video id="myVideo">
         <source src="./assets/videoplayback.mp4" type="video/mp4">
       </video>
-      <span class="play-icon" onclick="toggleVideo()">▶</span>
+      <button class="play-pause-btn" onclick="toggleVideo()"></button>
     </div>
   </section>
   <section id="organization" class="organization">
@@ -732,17 +786,18 @@
         <button type="button">Send</button>
       </div>
       <div class="contact-info">
-        <div><span>📍</span> 6336 Spring St #1273, Georgia, United States</div>
-        <div><span>📞</span> <a href="tel:+14355550130">(434) 555-0130</a></div>
+        <div><span>📍</span> 6336 Spring St undefined Anchorage, Georgia 12473 United States</div>
+        <div><span>📞</span> <a href="tel:+14355550130">(843) 555-0130</a></div>
         <div><span>📧</span> <a href="mailto:willie.jennings@example.com">willie.jennings@example.com</a></div>
       </div>
       <div class="contact-map">
-        <!-- Placeholder for map image -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30773392.078304354!2d61.028322527582496!3d19.690576264827094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1745105572372!5m2!1sen!2sin" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
     <div class="contact-social">
-      <a href="#">🐦</a>
-      <a href="#"></a>
+      <a href="#" class="twitter"><img src="./assets/twitter-blue.png" alt="Twitter"></a>
+      <a href="#" class="facebook"><img src="./assets/facebook-blue.png" alt="Facebook"></a>
+      <a href="#" class="linkedin"><img src="./assets/linkedin-blue.png" alt="LinkedIn"></a>
     </div>
   </section>
   <footer>
@@ -781,9 +836,9 @@
         <div><span>📍</span> 7480 Mastwood Hollo</div>
         <div><span>📞</span> <a href="tel:+12995550108">(299) 555-0108</a></div>
         <div class="footer-social">
-          <a href="#">🐦</a>
-          <a href="#"></a>
-          <a href="#"></a>
+          <a href="#"><img src="./assets/twitter-white.png" alt="Twitter"></a>
+          <a href="#"><img src="./assets/facebook-white.png" alt="Facebook"></a>
+          <a href="#"><img src="./assets/linkedin-white.png" alt="LinkedIn"></a>
         </div>
       </div>
     </div>
@@ -794,16 +849,32 @@
     // Video Functionality
     let video = document.getElementById('myVideo');
     let videoContainer = document.getElementById('videoContainer');
-    video.addEventListener('click', toggleVideo);
+    let playPauseBtn = document.querySelector('.play-pause-btn');
+
     function toggleVideo() {
       if (video.paused) {
         video.play();
+        videoContainer.classList.add('playing');
         videoContainer.classList.remove('paused');
       } else {
         video.pause();
         videoContainer.classList.add('paused');
+        videoContainer.classList.remove('playing');
       }
     }
+
+    video.addEventListener('play', () => {
+      videoContainer.classList.add('playing');
+      videoContainer.classList.remove('paused');
+    });
+
+    video.addEventListener('pause', () => {
+      videoContainer.classList.add('paused');
+      videoContainer.classList.remove('playing');
+    });
+
+    // Ensure button is visible on load if video is paused
+    videoContainer.classList.add('paused');
 
     // Testimonial Slider Functionality
     let slideIndex = 0;
