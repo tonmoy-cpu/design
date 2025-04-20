@@ -115,11 +115,6 @@
       text-align: center;
     }
     .feature-item img {
-      width: 150px;
-      height: 150px;
-      margin-bottom: 20px;
-    }
-    .feature-item img {
       width: 40px;
       height: 40px;
       margin-bottom: 10px;
@@ -370,6 +365,13 @@
       color: #666;
       vertical-align: middle;
     }
+    .testimonials .logo {
+      margin: 20px 0;
+    }
+    .testimonials .logo img {
+      width: 100px;
+      height: auto;
+    }
     .dots {
       margin-top: 20px;
     }
@@ -464,6 +466,8 @@
       background: #e6e6e6;
       color: #0056b3;
     }
+    
+    /* Updated Contact Us Section */
     .contact {
       padding: 80px 20px;
       text-align: center;
@@ -472,50 +476,33 @@
     .contact h2 {
       font-size: 27px;
       color: #2c3e50;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
     .contact p {
       font-size: 12px;
       color: #666;
       max-width: 600px;
-      margin: 0 auto 40px;
+      margin: 0 auto 30px;
     }
     .contact-content {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+      justify-content: center;
       max-width: 1000px;
       margin: 0 auto;
-      flex-direction: row;
-    }
-    .contact-info {
-      text-align: left;
-      font-size: 10px;
-      margin-bottom: 20px;
-    }
-    .contact-info div {
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .contact-info a {
-      color: #007bff;
-      text-decoration: none;
-    }
-    .contact-info a:hover {
-      text-decoration: underline;
+      gap: 40px;
     }
     .contact-form {
       width: 300px;
       padding: 20px;
       background: #f9f9f9;
       border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     .contact-form h3 {
       font-size: 20px;
       margin-bottom: 20px;
       color: #2c3e50;
+      text-align: left;
     }
     .contact-form input,
     .contact-form textarea {
@@ -543,26 +530,92 @@
     .contact-form button:hover {
       background: #0056b3;
     }
-    .contact-map {
-      width: 500px;
-      height: 300px;
-      border-radius: 10px;
+    
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 400px;
     }
-    .contact-social a img {
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      text-align: left;
+      font-size: 12px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .contact-item img {
+      width: 16px;
+      height: 16px;
+      margin-top: 3px;
+    }
+    
+    .contact-item p {
+      margin: 0;
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .contact-item a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+    
+    .contact-map {
+      width: 100%;
+      height: 250px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .contact-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    
+    .contact-social {
+      margin-top: 30px;
+      text-align: center;
+    }
+    
+    .contact-social a {
+      margin: 0 10px;
+    }
+    
+    .contact-social img {
       width: 24px;
       height: 24px;
     }
-    .contact-social {
-      margin-top: 20px;
-      text-align: center;
-    }
-    .contact-social a {
-      margin: 0 10px;
-      color: #007bff;
-    }
+    
     .contact-social a:hover img {
       filter: brightness(1.2);
     }
+    
+    @media (max-width: 768px) {
+      .contact-content {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .contact-right {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+    
     footer {
       padding: 40px 20px;
       background: #1a2a44;
@@ -720,6 +773,9 @@
   </section>
   <section id="testimonials" class="testimonials">
     <h2>Testimonials</h2>
+    <div class="logo">
+      <img src="./assets/ibm.png" alt="IBM Logo">
+    </div>
     <p>Most calendars are designed for teams. Slate is designed for freelancers who want a simple way to plan their schedule.</p>
     <div class="slider">
       <div class="slides" id="slides">
@@ -727,6 +783,21 @@
           <img src="./assets/john.png" alt="John Doe">
           <cite>John Doe <span>UI Designer</span></cite>
           <p>Most calendars are designed for teams. Slate is designed for freelancers who want a simple way to plan their schedule.</p>
+        </div>
+        <div class="slide">
+          <img src="./assets/jane.png" alt="Jane Smith">
+          <cite>Jane Smith <span>Graphic Designer</span></cite>
+          <p>Slate has transformed how I manage my freelance projects with its intuitive interface.</p>
+        </div>
+        <div class="slide">
+          <img src="./assets/mike.png" alt="Mike Johnson">
+          <cite>Mike Johnson <span>Web Developer</span></cite>
+          <p>Perfect tool for freelancers! Highly recommend for scheduling and tracking work.</p>
+        </div>
+        <div class="slide">
+          <img src="./assets/sarah.png" alt="Sarah Williams">
+          <cite>Sarah Williams <span>Content Creator</span></cite>
+          <p>Slate's simplicity and efficiency have saved me so much time in my daily routine.</p>
         </div>
       </div>
       <div class="dots" id="dots"></div>
@@ -774,6 +845,8 @@
       </div>
     </div>
   </section>
+  
+  <!-- Updated Contact Us Section -->
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
     <p>Most calendars are designed for teams. Slate is designed for freelancers</p>
@@ -785,13 +858,24 @@
         <textarea placeholder="Your Message" required></textarea>
         <button type="button">Send</button>
       </div>
-      <div class="contact-info">
-        <div><span>📍</span> 6336 Spring St undefined Anchorage, Georgia 12473 United States</div>
-        <div><span>📞</span> <a href="tel:+14355550130">(843) 555-0130</a></div>
-        <div><span>📧</span> <a href="mailto:willie.jennings@example.com">willie.jennings@example.com</a></div>
-      </div>
-      <div class="contact-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30773392.078304354!2d61.028322527582496!3d19.690576264827094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1745105572372!5m2!1sen!2sin" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="contact-right">
+        <div class="contact-info">
+          <div class="contact-item">
+            <img src="./assets/location.png" alt="Location">
+            <p>6336 Spring St undefined Anchorage, Georgia 12473 United States</p>
+          </div>
+          <div class="contact-item">
+            <img src="./assets/phone.png" alt="Phone">
+            <p><a href="tel:+14355550130">(843) 555-0130</a></p>
+          </div>
+          <div class="contact-item">
+            <img src="./assets/mail.png" alt="Email">
+            <p><a href="mailto:willie.jennings@example.com">willie.jennings@example.com</a></p>
+          </div>
+        </div>
+        <div class="contact-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30773392.078304354!2d61.028322527582496!3d19.690576264827094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1745105572372!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
     </div>
     <div class="contact-social">
@@ -800,6 +884,7 @@
       <a href="#" class="linkedin"><img src="./assets/linkedin-blue.png" alt="LinkedIn"></a>
     </div>
   </section>
+  
   <footer>
     <div class="footer-content">
       <div class="footer-section">
