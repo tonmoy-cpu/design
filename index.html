@@ -446,6 +446,9 @@
       padding: 5px 0;
       font-size: 14px;
     }
+    .month {
+      font-size: 14px;
+    }
     .pricing-card button {
       padding: 10px 20px;
       font-size: 16px;
@@ -565,7 +568,7 @@
     }
     
     .contact-item a {
-      color: #007bff;
+      color: #333434;
       text-decoration: none;
     }
     
@@ -655,6 +658,13 @@
     }
     .footer-contact div {
       margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .footer-contact div img {
+      margin-right: 10px;
+      width: 16px;
+      height: 16px;
     }
     .footer-contact a {
       color: #fff;
@@ -785,17 +795,17 @@
           <p>Most calendars are designed for teams. Slate is designed for freelancers who want a simple way to plan their schedule.</p>
         </div>
         <div class="slide">
-          <img src="./assets/jane.png" alt="Jane Smith">
+          <img src="./assets/john.png" alt="Jane Smith">
           <cite>Jane Smith <span>Graphic Designer</span></cite>
           <p>Slate has transformed how I manage my freelance projects with its intuitive interface.</p>
         </div>
         <div class="slide">
-          <img src="./assets/mike.png" alt="Mike Johnson">
+          <img src="./assets/john.png" alt="Mike Johnson">
           <cite>Mike Johnson <span>Web Developer</span></cite>
           <p>Perfect tool for freelancers! Highly recommend for scheduling and tracking work.</p>
         </div>
         <div class="slide">
-          <img src="./assets/sarah.png" alt="Sarah Williams">
+          <img src="./assets/john.png" alt="Sarah Williams">
           <cite>Sarah Williams <span>Content Creator</span></cite>
           <p>Slate's simplicity and efficiency have saved me so much time in my daily routine.</p>
         </div>
@@ -808,8 +818,8 @@
     <p>Most calendars are designed for teams. Slate is designed for freelancers</p>
     <div class="pricing-grid">
       <div class="pricing-card free">
-        <h3>FREE</h3>
-        <div class="price">$0 <span>Per Month</span></div>
+        <h5>FREE</h5>
+        <div class="price">$0 <span class="month">Per Month</span></div>
         <ul>
           <li>Organize across all apps by hand</li>
           <li>Pricing Feature</li>
@@ -820,8 +830,8 @@
         <button>Order Now</button>
       </div>
       <div class="pricing-card standard">
-        <h3>STANDARD</h3>
-        <div class="price">$10 <span>Per Month</span></div>
+        <h5>STANDARD</h5>
+        <div class="price" id="big">$10 <span class="month">Per Month</span></div>
         <ul>
           <li>Organize across all apps by hand</li>
           <li>Pricing Feature</li>
@@ -832,8 +842,8 @@
         <button>Order Now</button>
       </div>
       <div class="pricing-card business">
-        <h3>BUSINESS</h3>
-        <div class="price">$99 <span>Per Month</span></div>
+        <h5>BUSINESS</h5>
+        <div class="price">$99 <span class="month">Per Month</span></div>
         <ul>
           <li>Organize across all apps by hand</li>
           <li>Pricing Feature</li>
@@ -866,11 +876,11 @@
           </div>
           <div class="contact-item">
             <img src="./assets/phone.png" alt="Phone">
-            <p><a href="tel:+14355550130">(843) 555-0130</a></p>
+            <p class="phone"><a href="tel:+14355550130">(843) 555-0130</a></p>
           </div>
           <div class="contact-item">
             <img src="./assets/mail.png" alt="Email">
-            <p><a href="mailto:willie.jennings@example.com">willie.jennings@example.com</a></p>
+            <p class="mail"><a href="mailto:willie.jennings@example.com">willie.jennings@example.com</a></p>
           </div>
         </div>
         <div class="contact-map">
@@ -918,8 +928,8 @@
       </div>
       <div class="footer-contact">
         <h4>© 2022 undefined</h4>
-        <div><span>📍</span> 7480 Mastwood Hollo</div>
-        <div><span>📞</span> <a href="tel:+12995550108">(299) 555-0108</a></div>
+        <div><img src="./assets/location-white.png" alt="Location"><span> 7480 Mastwood Hollo</span></div>
+        <div><img src="./assets/phone-white.png" alt="Phone"><a href="tel:+12995550108">(299) 555-0108</a></div>
         <div class="footer-social">
           <a href="#"><img src="./assets/twitter-white.png" alt="Twitter"></a>
           <a href="#"><img src="./assets/facebook-white.png" alt="Facebook"></a>
